@@ -8,8 +8,10 @@
     </li>
 </ul>
 
+<app-hero-detail [hero]="selectedHero"></app-hero-detail>
+
 <!-- A propriedade *ngIf aparece somente quando a propriedade possui algum valor -->
-<div *ngIf="selectedHero">
+<!--<div *ngIf="selectedHero">
     <h2>{{selectedHero.name}}</h2>
     <div><span>id: </span>{{selectedHero.id}}</div>
     <div>
@@ -17,4 +19,5 @@
             <input [(ngModel)]="selectedHero.name" placeholder="name"/>
         </label>
     </div>
-</div>
+</div>-->
+
