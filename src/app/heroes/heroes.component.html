@@ -1,14 +1,25 @@
 <h2>My Heroes</h2>
 <ul class="heroes">
  <!-- Laço for each dentro do Angular é ex: *ngFor = "let nome of nomes" --> 
-    <li *ngFor = 'let hero of heroes' 
-        [class.batata]="hero === selectedHero"
-        (click)="onSelect(hero)">
-        <span class="badge">{{hero.id}}</span> {{hero.name}}
+    <li *ngFor = 'let hero of heroes'>
+        <a routerLink='/detail/{{hero.id}}'>
+            <span class="badge">{{hero.id}}</span> {{hero.name}}
+        </a>
+        <button class="delete" title="delete hero" 
+        (click)="delete(hero)">X</button>
     </li>
+
+
 </ul>
 
-<app-hero-detail [hero]="selectedHero"></app-hero-detail>
+<div>
+    <label>Hero name: <input #heroName /> </label>
+    <!-- click vai passar o valor do input para o add () e limpar o input -->
+    <button (click)="add(heroName.value); heroName.value=''">add</button>
+</div>
+
+<app-hero-detail></app-hero-detail>
+<!--[hero]="selectedHero"-->
 
 <!-- A propriedade *ngIf aparece somente quando a propriedade possui algum valor -->
 <!--<div *ngIf="selectedHero">

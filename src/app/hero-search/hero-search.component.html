@@ -1,0 +1,15 @@
+<div id="search-component">
+    <h4><label for="search-box">Hero Search</label></h4>
+
+    <!-- Sempre que o usuario digita na caixa search, chama a função searchTerm, e se torna
+         um Observable, emitindo um fluxo constante de termos de pesquisa -->
+    <input #searchBox id="search-box" (input)="search(searchBox.value)"/>
+
+    <ul class="search-result">
+        <li *ngFor="let hero of heroes$ | async">
+            <a routerLink="/detail/{{hero.id}}">
+                {{hero.name}}
+            </a>
+        </li>
+    </ul>
+</div>
